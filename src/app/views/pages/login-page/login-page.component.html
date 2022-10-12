@@ -1,0 +1,48 @@
+<section class="wrapper d-flex justify-content-center align-items-center">
+  <mat-card class="wrapper__form">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form
+        class="d-flex flex-column align-items-center w-100"
+        [formGroup]="loginForm"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" />
+          <mat-error
+            *ngIf="
+              loginFormControls.username.touched &&
+              loginFormControls.username.errors?.required
+            "
+          >
+            Username is Required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error
+            *ngIf="
+              loginFormControls.password.touched &&
+              loginFormControls.password.errors?.required
+            "
+          >
+            Password is Required
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions align="start">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!loginForm.valid"
+        (click)="onSubmit()"
+      >
+        Login
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section>

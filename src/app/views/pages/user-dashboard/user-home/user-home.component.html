@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <h3>Create Order</h3>
+  <form class="wrapper__form" [formGroup]="orderForm">
+    <div class="d-flex flex-column">
+      <mat-form-field appearance="fill">
+        <mat-label>Item</mat-label>
+        <input matInput formControlName="item" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addNewOrder()">
+        {{ editMode ? "Update Order" : "Add Order" }}
+      </button>
+    </div>
+  </form>
+  <div class="wrapper__table">
+    <app-order-table></app-order-table>
+  </div>
+</div>
